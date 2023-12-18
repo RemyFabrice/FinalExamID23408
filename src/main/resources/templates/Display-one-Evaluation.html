@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluation Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Evaluation Details</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Application Receipt</th>
+        <th>University Certificate</th>
+        <th>Secondary Certificate</th>
+        <th>Photo</th>
+        <th>University Transcript</th>
+        <th>Referee's Letter 1</th>
+        <th>Referee's Letter 2</th>
+        <th>Referee's Letter 3</th>
+        <th>Updated CV</th>
+        <th>Essay</th>
+        <th>Overall Remarks</th>
+        <th>Applicant Name</th>
+    </tr>
+    <tr th:object="${evaluation}">
+        <td th:text="${evaluation.id}"></td>
+        <td th:text="${evaluation.applicationReceipt}"></td>
+        <td th:text="${evaluation.universityCertificate}"></td>
+        <td th:text="${evaluation.secondaryCertificate}"></td>
+        <td th:text="${evaluation.photo}"></td>
+        <td th:text="${evaluation.universityTranscript}"></td>
+        <td th:text="${evaluation.refereesLetter1}"></td>
+        <td th:text="${evaluation.refereesLetter2}"></td>
+        <td th:text="${evaluation.refereesLetter3}"></td>
+        <td th:text="${evaluation.updatedCV}"></td>
+        <td th:text="${evaluation.essay}"></td>
+        <td th:text="${evaluation.overalremarks}"></td>
+        <td th:text="${evaluation.supportingDocuments.applic.familyName}"></td>
+
+<!--        <td th:text="${evaluation.supportingDocuments.applic.email}"></td>-->
+    </tr>
+</table>
+
+
+<h2>Submit Admission Response</h2>
+<form action="/submitAdmission" method="post">
+    <input type="hidden"   name="evaluation" th:value="${evaluation.id}"/>
+    <label for="Admitted">Decision:</label>
+    <select id="Admitted" name="Admitted">
+        <option value="YES">YES</option>
+        <option value="NO">NO</option>
+    </select>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

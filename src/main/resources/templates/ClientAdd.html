@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Client Form  </title>
+    <!-- Add your CSS stylesheets here -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+           background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+<h2>Add Client Details form</h2>
+<form role="form" action="/saveGB" method="post" th:object="${Client}">
+    <div>
+        <label for="familyName">FirstName</label>
+        <input type="text" id="familyName" name="familyName" th:field="*{familyName}" required />
+    </div>
+
+    <div>
+        <label for="firstname">Second Name:</label>
+        <input type="text" id="firstname" name="firstname" th:field="*{firstname}" required />
+    </div>
+
+
+    <div>
+        <label for="Location">Location:</label>
+        <input type="text" id="Location" name="Location" th:field="*{Location}" required />
+    </div>
+    <div>
+        <button type="submit">Register </button>
+    </div>
+
+
+</form>
+</body>
+
+</html>

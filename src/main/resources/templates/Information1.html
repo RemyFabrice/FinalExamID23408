@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information Page</title>
+  <style>
+    /* CSS styles go here */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px 0;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    p {
+        color: #666;
+    }
+
+    /* Style for the button */
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    /* Style for the form */
+    form {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    button[type="submit"] {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="container info-container">
+  <h1>Ask a Question</h1>
+  <p>Send us a message:</p>
+
+  <!-- Improved styling for the form -->
+  <form role="form" action="/saveQE" method="post" th:object="${Question}">
+    <div>
+      <label for="Description">Your Message:</label>
+      <input type="text" id="Description" name="Description" th:field="*{Description}" required />
+    </div>
+    <div>
+      <button type="submit" class="button">Send Message</button>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <h1>Ishyiga Location </h1>
+  <p>Click the link below to view Ishyiga Location.</p>
+
+  <!-- Button to go to the external link -->
+  <a class="button" href="https://www.ishyiga.net/web/buy.php" target="_blank">View Our Location </a>
+</div>
+
+<div class="container">
+  <h1>Ishyiga Staff Information</h1>
+  <p>Click the link below to view Ishyiga Staff.</p>
+
+  <!-- Button to go to the external link -->
+  <a class="button" href="https://www.ishyiga.net/web/staff.html" target="_blank">View Our Staff</a>
+</div>
+
+<div class="container">
+  <h1>View Ishyiga Contact </h1>
+  <p>Click the link below to view Contact.</p>
+
+  <!-- Button to go to the external link -->
+  <a class="button" href="https://www.ishyiga.net/web/contact.php#" target="_blank">Ishyiga Contact</a>
+</div>
+
+</body>
+</html>

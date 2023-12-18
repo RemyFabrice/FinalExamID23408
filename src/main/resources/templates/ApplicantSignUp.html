@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Educational Background Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f1f1f1;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="form-header">Sign Up Applicant</div>
+<form th:action="@{/SignUp}" th:object="${userApplicant}" method="post">
+    <div class="form-group">
+        <label>Email:</label>
+        <input type="text" th:field="*{UserEmail}" required>
+    </div>
+
+    <div class="form-group">
+        <label> PassWord :</label>
+        <input type="text" th:field="*{UserPassWord}" required>
+    </div>
+
+    <div class="form-group">
+        <label>Retype-PassWord :</label>
+        <input type="text" th:field="*{RetypePassword}" required>
+    </div>
+
+    <button type="submit">Sign UP</button>
+</form>
+</body>
+</html>

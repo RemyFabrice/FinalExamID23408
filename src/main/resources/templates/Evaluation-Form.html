@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List Of Applicant Documets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button[type="submit"] {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<h2>  Admission Page  </h2>
+
+
+<form th:action="@{/displayone}" method="get">
+    <label for="id">Enter Application Id To Evaluate the Applicant:</label>
+    <input type="text" id="id" name="id" required>
+    <button type="submit">Go to evaluation Page</button>
+
+    <li><a href="/viewApplicDoc" class="btn"> Go to evaluation Page </a></li>
+
+
+</form>
+
+<table>
+    <thead>
+    <tr>
+
+        <th>Name</th>
+        <th>ID</th>
+        <th>Application Receipt</th>
+        <th>University Certificate</th>
+        <th>Secondary Certificate</th>
+        <th>Photo</th>
+        <th>University Transcript</th>
+        <th>Referees Letter 1</th>
+        <th>Referees Letter 2</th>
+        <th>Referees Letter 3</th>
+        <th>Updated CV</th>
+        <th>Essay</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="document : ${document}">
+
+
+
+        <td th:text="${document.applic.firstName + ' ' + document.applic.familyName}"></td>
+<!--        <td th:text="${document.applic.id + ' ' + document.applic.email}"></td>-->
+
+
+        <td th:text="${document.id}"></td>
+
+        <td><a th:if="${document.applicationReceipt}" th:href="@{'data:application/pdf;base64,' + ${document.applicationReceipt}}" target="_blank">View PDF</a></td>
+        <td><a th:if="${document.universityCertificate}" th:href="@{'data:application/pdf;base64,' + ${document.universityCertificate}}" target="_blank">View PDF</a></td>
+        <td><a th:if="${document.secondaryCertificate}" th:href="@{'data:application/pdf;base64,' + ${document.secondaryCertificate}}" target="_blank">View PDF</a></td>
+        <td><img th:if="${document.photo}" th:src="'data:image/jpeg;base64,' + ${document.photo}" alt="Photo" width="100"/></td>
+        <td><a th:if="${document.universityTranscript}" th:href="@{'data:application/pdf;base64,' + ${document.universityTranscript}}" target="_blank">View PDF</a></td>
+        <td><a th:if="${document.refereesLetter1}" th:href="@{'data:application/pdf;base64,' + ${document.refereesLetter1}}" target="_blank">View PDF</a></td>
+        <td><a th:if="${document.refereesLetter2}" th:href="@{'data:application/pdf;base64,' + ${document.refereesLetter2}}" target="_blank">View PDF</a></td>
+        <td><a th:if="${document.refereesLetter3}" th:href="@{'data:application/pdf;base64,' + ${document.refereesLetter3}}" target="_blank">View PDF</a></td>
+        <td><a th:if="${document.updatedCV}" th:href="@{'data:application/pdf;base64,' + ${document.updatedCV}}" target="_blank">View PDF</a></td>
+        <td><a th:if="${document.essay}" th:href="@{'data:application/pdf;base64,' + ${document.essay}}" target="_blank">View PDF</a></td>
+
+
+    </tr>
+    </tbody>
+
+</table>
+
+<a th:href="@{/downloadPdf(admittedFilter='YES')}" class="btn btn-primary">Download Admitted PDF Report</a>
+<a th:href="@{/downloadPdf(admittedFilter='NO')}" class="btn btn-primary">Download Non-Admitted PDF Report</a>
+
+
+</body>
+</html>

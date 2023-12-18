@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add General Background</title>
+    <!-- Add your CSS stylesheets here -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+           background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+<h2>Add General Background</h2>
+<form role="form" action="/saveGB" method="post" th:object="${generalBackground}">
+    <div>
+        <label for="universityAtt">University Attended:</label>
+        <input type="text" id="universityAtt" name="universityAtt" th:field="*{universityAtt}" required />
+    </div>
+    <div>
+        <label for="dateYouWantToStart">Date You Want To Start:</label>
+        <input type="text" id="dateYouWantToStart" name="dateYouWantToStart" th:field="*{dateYouWantToStart}" required />
+    </div>
+    <div>
+        <label for="major">Major:</label>
+        <input type="text" id="major" name="major" th:field="*{major}" required />
+    </div>
+    <div>
+        <label for="modeOfStudy">Mode Of Study:</label>
+        <input type="text" id="modeOfStudy" name="modeOfStudy" th:field="*{modeOfStudy}" required />
+    </div>
+    <div>
+        <label for="language">Language:</label>
+        <input type="text" id="language" name="language" th:field="*{language}" required />
+    </div>
+    <div>
+        <label for="nameofreferees">Name of Referees:</label>
+        <input type="text" id="nameofreferees" name="nameofreferees" th:field="*{nameofreferees}" required />
+    </div>
+    <div>
+        <button type="submit">Add General Background</button>
+    </div>
+
+
+</form>
+</body>
+
+</html>

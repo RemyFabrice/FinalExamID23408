@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Applicant Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .form-label {
+            width: 180px;
+            flex-shrink: 0;
+            padding-right: 10px;
+            text-align: right;
+        }
+        .form-field {
+            flex-grow: 1;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="radio"],
+        input[type="checkbox"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h2>Applicant Form</h2>
+    <form role="form" th:action="@{/saveApplicant}" th:object="${applicant}" method="post">
+        <!-- The rest of your form content -->
+
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Family Name:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{familyName}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>First Name:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{firstName}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Other Name:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{otherName}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Present Mailing Address:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{presentMailingAddress}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Permanent Mailing Address:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{permanentMailingAddress}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Telephone:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{telephone}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Email Address:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{emailAddress}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Marital Status:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{maritalStatus}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Number of Children:</label>
+            </div>
+            <div class="form-field">
+                <input type="number" th:field="*{numberOfChildren}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Gender:</label>
+            </div>
+            <div class="form-field">
+                <select th:field="*{gender}">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Date of Birth:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{dateOfBirth}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Place of Birth:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{placeOfBirth}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Country of Citizenship:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{countryOfCitizenship}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Passport or National ID:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{passportOrNationalId}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Country of Residence:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{countryOfResidence}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Type of Visa:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{typeOfVisa}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Religious Affiliation:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{religiousAffiliation}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Church Address:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{churchAddress}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Handicap:</label>
+            </div>
+            <div class="form-field">
+                <select th:field="*{handicap}">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-label">
+                <label>Handicap Details:</label>
+            </div>
+            <div class="form-field">
+                <input type="text" th:field="*{handicapDetails}" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-field" style="margin-left: auto;">
+                <input type="submit" value="Submit" />
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Educational Background Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f1f1f1;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="form-header">Educational Background Form</div>
+<form th:action="@{/saveEB}" th:object="${educationalBackground}" method="post">
+    <div class="form-group">
+        <label>Secondary:</label>
+        <input type="text" th:field="*{Secondary}" required>
+    </div>
+    <div class="form-group">
+        <label>Secondary Country:</label>
+        <input type="text" th:field="*{SCountry}" required>
+    </div>
+    <div class="form-group">
+        <label>Secondary Year Started:</label>
+        <input type="text" th:field="*{Syearstarted}" required>
+    </div>
+    <div class="form-group">
+        <label>Secondary Year Ended:</label>
+        <input type="text" th:field="*{SyearEndede}" required>
+    </div>
+    <div class="form-group">
+        <label>University:</label>
+        <input type="text" th:field="*{university}" required>
+    </div>
+    <div class="form-group">
+        <label>University Country:</label>
+        <input type="text" th:field="*{uCountry}" required>
+    </div>
+    <div class="form-group">
+        <label>University Year Started:</label>
+        <input type="text" th:field="*{uyearstarted}" required>
+    </div>
+    <div class="form-group">
+        <label>University Year Ended:</label>
+        <input type="text" th:field="*{uyearEndede}" required>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

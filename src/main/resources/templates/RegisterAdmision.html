@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        form {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Register Portal </h1>
+
+<form th:action="@{/Display-One}" method="get">
+    <label for="id">Enter ID:</label>
+    <input type="text" id="id" name="id" required>
+    <button type="submit">Display Document</button>
+</form>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Applicant Doc ID</th>
+        <th>Application Receipt</th>
+        <th>University Certificate</th>
+        <th>Secondary Certificate</th>
+        <th>Photo</th>
+        <th>University Transcript</th>
+        <th>Referees Letter 1</th>
+        <th>Referees Letter 2</th>
+        <th>Referees Letter 3</th>
+        <th>Updated CV</th>
+        <th>Essay</th>
+        <th>Overall Remarks</th>
+    </tr>
+    <tr th:each="Admision : ${Admision}">
+        <td th:text="${Admision.id}"></td>
+        <td th:text="${Admision.evaluation.applicantDocId}"></td>
+        <td th:text="${Admision.evaluation.applicationReceipt}"></td>
+        <td th:text="${Admision.evaluation.universityCertificate}"></td>
+        <td th:text="${Admision.evaluation.secondaryCertificate}"></td>
+        <td th:text="${Admision.evaluation.photo}"></td>
+        <td th:text="${Admision.evaluation.universityTranscript}"></td>
+        <td th:text="${Admision.evaluation.refereesLetter1}"></td>
+        <td th:text="${Admision.evaluation.refereesLetter2}"></td>
+        <td th:text="${Admision.evaluation.refereesLetter3}"></td>
+        <td th:text="${Admision.evaluation.updatedCV}"></td>
+        <td th:text="${Admision.evaluation.essay}"></td>
+        <td th:text="${Admision.evaluation.overalremarks}"></td>
+    </tr>
+</table>
+
+<label for="photo">Send Admision Response:</label>
+<input type="file" id="photo" name="photo" accept=".jpg, .png">
+
+</body>
+
+</html>
